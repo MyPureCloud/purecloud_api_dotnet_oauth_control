@@ -88,7 +88,7 @@ namespace OAuthControl
 
         public OAuthWebBrowser()
         {
-            RedirectUriIsFake = true;
+            RedirectUriIsFake = false;
             Environment = PureCloudEnvironment.MyPureCloud;
             
             this.Navigated += OnNavigated;
