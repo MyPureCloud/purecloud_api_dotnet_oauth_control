@@ -13,11 +13,9 @@ namespace OAuthControl
 {
     public class OAuthWebBrowser : WebBrowser
     {
-        private string _accessToken;
-
         #region Private Members
 
-
+        private string _accessToken;
 
         #endregion
 
@@ -151,8 +149,10 @@ namespace OAuthControl
                 // Check for errors
                 if (args.Url.Fragment.StartsWith("#/error?"))
                 {
+                    // Strip leading part of path and parse
                     var errorFragment = HttpUtility.ParseQueryString(args.Url.Fragment.Substring(8));
 
+                    // Check for errorKey parameter
                     if (errorFragment.AllKeys.Contains("errorKey"))
                     {
                         RaiseExceptionEncountered("OAuthWebBrowser.Navigated", new Exception(errorFragment["errorKey"]));
@@ -165,7 +165,7 @@ namespace OAuthControl
                 {
                     var queryString = HttpUtility.ParseQueryString(args.Url.Query);
 
-                    // Get the code from the redirect URI
+                    // Get the code from the redirect URI (auth code grant)
                     if (queryString.AllKeys.Contains("code"))
                     {
                         GetTokenFromCode(queryString["code"]);
@@ -174,7 +174,7 @@ namespace OAuthControl
                     }
 
                     var fragment = HttpUtility.ParseQueryString(args.Url.Fragment.TrimStart('#'));
-                    // Get the token from the redirect URI
+                    // Get the token from the redirect URI (implicit grant)
                     if (fragment.AllKeys.Contains("expires_in"))
                     {
                         var i = 0;
