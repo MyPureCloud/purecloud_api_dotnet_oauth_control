@@ -13,6 +13,14 @@ This solution contains two examples projects. The _Oauth Example_ project uses t
 
 ## Using OAuthWebBrowser
 
+### Creating an Instance
+
+Use UI tools to add the control or create it in code (must create in code for WPF):
+
+```csharp
+var browser = new OAuthWebBrowser();
+```
+
 ### Setup
 
 The following properties should be configured before invoking an OAuth flow:
