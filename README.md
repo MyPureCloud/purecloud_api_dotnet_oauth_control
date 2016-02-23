@@ -20,7 +20,7 @@ The following properties should be configured before invoking an OAuth flow:
 * ```RedirectUri``` - The redirect URI configured for the oauth client
 * ```ClientId``` - The Client ID (aka Application ID) of the OAuth client
 * ```ClientSecret``` - The Client Secret (aka Application Secret) of the OAuth client. _Note: this can be left unset if using the Implicit Grant flow_
-* ```RedirectUriIsFake** - If set to ```true```, the control will hide itself (visible=false) upon successfully retrieving an auth token.  This exists due to the non-web nature of a .NET app -- there is not necessarially a webpage to redirect to. If a fake URL is used in the configuration (e.g. http://notarealserver/), setting this property to true prevents the user from seeing errors in the browser related to being unable to resolve the address. This setting defaults to ```false```.
+* ```RedirectUriIsFake``` - If set to ```true```, the control will hide itself (visible=false) upon successfully retrieving an auth token.  This exists due to the non-web nature of a .NET app -- there is not necessarially a webpage to redirect to. If a fake URL is used in the configuration (e.g. http://notarealserver/), setting this property to true prevents the user from seeing errors in the browser related to being unable to resolve the address. This setting defaults to ```false```.
 
 The following events may be useful for the consuming application:
 
