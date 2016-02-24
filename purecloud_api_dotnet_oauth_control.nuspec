@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+<metadata>
+    <id>PureCloudOAuthControl</id>
+    <title>PureCloud OAuth Control</title>
+    <summary>A .NET control to handle OAuth flows with PureCloud</summary>
+    <projectUrl>https://github.com/MyPureCloud/purecloud_api_dotnet_oauth_control</projectUrl>
+    <copyright>Interactive Intelligence, Inc.</copyright>
+    <licenseUrl>https://github.com/MyPureCloud/purecloud_api_dotnet_oauth_control/blob/master/LICENSE</licenseUrl>
+    <iconUrl>https://raw.githubusercontent.com/MyPureCloud/purecloud_api_dotnet_oauth_control/master/ininlogo64.png</iconUrl>
+    <tags>interactive intelligence inin purecloud pure cloud public api sdk oauth control</tags>
+    <language>en-us</language>
+    <version>1.0.0.1</version>
+    <authors>Interactive Intelligence</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>PureCloud OAuth Control</description>
+    <dependencies>
+        <dependency id="RestSharp"/>
+    </dependencies>
+</metadata>
+<files>
+    <file src="src\OAuthLibrary\OAuthControl\bin\Release\ININ.PureCloud.OAuthControl.dll" target="lib\ININ.PureCloud.OAuthControl.dll"/>
+</files>
+</package>
