@@ -1,9 +1,14 @@
 # PureCloud API - .NET OAuth Control
-A .NET control implementing and encapsulating the OAuth2 authentication flows
 
-# Overview
+## Overview
 
 This project produces a .NET library that provides a simple way to execute an OAuth 2 flow in a C# application. This is accomplished by providing the OAuthWebBrowser class, which inherits from the [WebBrowser](https://msdn.microsoft.com/en-us/library/2te2y1x6.aspx) winforms control. When invoked, the control will navigate to the appropriate login URL, allow the user to authenticate securely, and will raise events for authentication and error events.
+
+## Install Using nuget
+
+```
+install-package PureCloudOAuthControl
+```
 
 # Getting Started
 
@@ -13,13 +18,7 @@ This solution contains two examples projects. The _Oauth Example_ project uses t
 
 ## Using OAuthWebBrowser
 
-## Install Using nuget
-
-```
-install-package PureCloudOAuthControl
-```
-
-## Referencing the Library
+### Referencing the Library
 
 If you've used the [Package Manager Console](https://docs.nuget.org/consume/package-manager-console) to install the package, there are no additional steps. 
 
