@@ -7,8 +7,8 @@
     <ProjectGuid>{020B950D-820D-41BD-BF66-2AAF764771B0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OAuthControl</RootNamespace>
-    <AssemblyName>OAuthControl</AssemblyName>
+    <RootNamespace>ININ.PureCloud.OAuthControl</RootNamespace>
+    <AssemblyName>ININ.PureCloud.OAuthControl</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

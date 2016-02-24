@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using OAuthControl;
+using ININ.PureCloud.OAuthControl;
 
 namespace OAuth_Example
 {

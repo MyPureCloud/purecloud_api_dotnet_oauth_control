@@ -1,4 +1,6 @@
-﻿namespace OAuth_Example
+﻿using ININ.PureCloud.OAuthControl;
+
+namespace OAuth_Example
 {
     partial class Form1
     {
@@ -36,7 +38,7 @@
             this.txtClientSecret = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnImplicitGrant = new System.Windows.Forms.Button();
-            this.oAuthWebBrowser1 = new OAuthControl.OAuthWebBrowser();
+            this.oAuthWebBrowser1 = new OAuthWebBrowser();
             this.SuspendLayout();
             // 
             // label1
@@ -158,7 +160,7 @@
 
         #endregion
 
-        private OAuthControl.OAuthWebBrowser oAuthWebBrowser1;
+        private OAuthWebBrowser oAuthWebBrowser1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtToken;
         private System.Windows.Forms.TextBox txtClientId;

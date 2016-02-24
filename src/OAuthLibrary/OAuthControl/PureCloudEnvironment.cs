@@ -1,4 +1,4 @@
-﻿namespace OAuthControl
+﻿namespace ININ.PureCloud.OAuthControl
 {
     public sealed class PureCloudEnvironment
     {
