@@ -13,6 +13,18 @@ This solution contains two examples projects. The _Oauth Example_ project uses t
 
 ## Using OAuthWebBrowser
 
+## Install Using nuget
+
+```
+install-package PureCloudOAuthControl
+```
+
+## Referencing the Library
+
+If you've used the [Package Manager Console](https://docs.nuget.org/consume/package-manager-console) to install the package, there are no additional steps. 
+
+If you're building from source or otherwise not using nuget, reference your version of ININ.PureCloud.OAuthControl.dll in your project and add a reference or install the package for [RestSharp](http://www.nuget.org/packages/RestSharp/).
+
 ### Creating an Instance
 
 Use UI tools to add the control or create it in code (must create in code for WPF):
