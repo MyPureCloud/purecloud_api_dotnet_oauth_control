@@ -40,9 +40,5 @@ namespace OAuth_Example
             oAuthWebBrowser1.ClientSecret = "";
             oAuthWebBrowser1.BeginImplicitGrant();
         }
-
-        private void btnAuthCodeGrant_Click(object sender, EventArgs e)
-        {
-        }
     }
 }
