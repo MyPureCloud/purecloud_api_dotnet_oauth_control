@@ -21,7 +21,6 @@
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
-                <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="85" />
@@ -33,12 +32,8 @@
             <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding ElementName=TheWindow, Path=ClientId, UpdateSourceTrigger=PropertyChanged}" />
             <Button Grid.Row="0" Grid.Column="2" Click="StartImplicitGrant_Click">Start Implicit Grant</Button>
 
-            <Label Grid.Row="1" Grid.Column="0">Client Secret:</Label>
-            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=TheWindow, Path=ClientSecret, UpdateSourceTrigger=PropertyChanged}" />
-            <Button Grid.Row="1" Grid.Column="2" Click="StartAuthCodeGrant_Click">Start Auth Code Grant</Button>
-
-            <Label Grid.Row="2" Grid.Column="0">Token:</Label>
-            <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" IsReadOnly="True" Text="{Binding ElementName=TheWindow, Path=AuthToken}" />
+            <Label Grid.Row="1" Grid.Column="0">Token:</Label>
+            <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" IsReadOnly="True" Text="{Binding ElementName=TheWindow, Path=AuthToken}" />
 
         </Grid>
         

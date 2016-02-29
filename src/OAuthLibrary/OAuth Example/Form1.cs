@@ -43,9 +43,6 @@ namespace OAuth_Example
 
         private void btnAuthCodeGrant_Click(object sender, EventArgs e)
         {
-            oAuthWebBrowser1.ClientId = txtClientId.Text.Trim();
-            oAuthWebBrowser1.ClientSecret = txtClientSecret.Text.Trim();
-            oAuthWebBrowser1.BeginAuthorizationCodeGrant();
         }
     }
 }

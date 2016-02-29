@@ -95,12 +95,5 @@ namespace OAuth_Example_WPF
             _browser.ClientSecret = "";
             _browser.BeginImplicitGrant();
         }
-
-        private void StartAuthCodeGrant_Click(object sender, RoutedEventArgs e)
-        {
-            _browser.ClientId = ClientId.Trim();
-            _browser.ClientSecret = ClientSecret.Trim();
-            _browser.BeginAuthorizationCodeGrant();
-        }
     }
 }

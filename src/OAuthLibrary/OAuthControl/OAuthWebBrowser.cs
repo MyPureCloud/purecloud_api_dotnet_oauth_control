@@ -93,39 +93,6 @@ namespace ININ.PureCloud.OAuthControl
 
         #region Private Methods
 
-        private void GetTokenFromCode(string authCode)
-        {
-            // Get client
-            var client = new RestClient($"https://login.{Environment}.com")
-            {
-                Authenticator = new HttpBasicAuthenticator(ClientId, ClientSecret)
-            };
-
-            // Build request
-            var request = new RestRequest("token", Method.POST);
-            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
-            request.AddParameter("grant_type", "authorization_code");
-            request.AddParameter("code", authCode);
-            request.AddParameter("redirect_uri", RedirectUri);
-
-            // Get response
-            var response = client.Execute<PureCloudTokenResponse>(request);
-
-            // Check for error
-            if (response.StatusCode != HttpStatusCode.OK)
-                throw new Exception("Request error: " + (
-                    !string.IsNullOrEmpty(response.Data.error)
-                        ? response.Data.error
-                        : !string.IsNullOrEmpty(response.ErrorMessage)
-                            ? response.ErrorMessage
-                            : !string.IsNullOrEmpty(response.StatusDescription)
-                                ? response.StatusDescription
-                                : "There was an error with the request"));
-
-            // Success!
-            AccessToken = response.Data.access_token;
-        }
-
         private void RaiseExceptionEncountered(string source, Exception ex)
         {
             ExceptionEncountered?.Invoke(source, ex);
@@ -162,14 +129,6 @@ namespace ININ.PureCloud.OAuthControl
                 {
                     var queryString = HttpUtility.ParseQueryString(args.Url.Query);
 
-                    // Get the code from the redirect URI (auth code grant)
-                    if (queryString.AllKeys.Contains("code"))
-                    {
-                        GetTokenFromCode(queryString["code"]);
-                        if (RedirectUriIsFake) Visible = false;
-                        return;
-                    }
-
                     var fragment = HttpUtility.ParseQueryString(args.Url.Fragment.TrimStart('#'));
                     // Get the token from the redirect URI (implicit grant)
                     if (fragment.AllKeys.Contains("expires_in"))
@@ -197,18 +156,6 @@ namespace ININ.PureCloud.OAuthControl
 
 
         #region Public Methods
-
-        /// <summary>
-        /// Initiates the Authorization Code Grant OAuth flow
-        /// </summary>
-        public void BeginAuthorizationCodeGrant()
-        {
-            // Clear existing token
-            AccessToken = "";
-
-            // Navigate to the login URL
-            this.Navigate($"https:\\\\login.{Environment}.com/authorize?client_id={ClientId}&response_type=code&redirect_uri={RedirectUri}");
-        }
 
         /// <summary>
         /// Initiates the Implicit Grant OAuth flow
