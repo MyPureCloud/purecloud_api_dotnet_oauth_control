@@ -31,7 +31,6 @@ namespace OAuth_Example
             };
 
             // Set browser settings
-            oAuthWebBrowser1.Environment = PureCloudEnvironment.SCA;
             oAuthWebBrowser1.RedirectUri = "http://invaliduri/";
         }
 

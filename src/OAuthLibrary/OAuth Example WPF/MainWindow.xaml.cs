@@ -61,7 +61,6 @@ namespace OAuth_Example_WPF
             _browser = new OAuthWebBrowser
             {
                 Dock = DockStyle.Fill,
-                Environment = PureCloudEnvironment.SCA,
                 RedirectUri = "http://invaliduri/"
             };
             _browser.Authenticated += token =>
