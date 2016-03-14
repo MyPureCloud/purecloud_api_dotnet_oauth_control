@@ -1,0 +1,20 @@
+{
+  "author": "ININ Developer Evangelists",
+  "title": ".NET OAuth Control",
+  "info_url": "https://github.com/MyPureCloud/purecloud_api_dotnet_oauth_control",
+  "logo_url": "https://raw.githubusercontent.com/MyPureCloud/purecloud_api_sdk_csharp/master/ininlogo64.png",
+  "categories": [
+    "extensions"
+  ],
+  "tags": [
+    "extension",
+    "C#",
+    "Platform API"
+  ],
+  "apis": [
+    "platform"
+  ],
+  "sdks": [
+    "csharp"
+  ]
+}
