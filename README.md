@@ -54,10 +54,6 @@ var result = form.ShowDialog();
 
 Console.WriteLine($"Result: {result}");
 Console.WriteLine($"AccessToken: {form.oAuthWebBrowser1.AccessToken}");
-
-Console.WriteLine("Application complete.");
-Console.WriteLine("Press any key to exit...");
-Console.ReadKey();
 ```
 
 *Notes*
