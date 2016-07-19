@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth Example", "OAuth Exam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth Example WPF", "OAuth Example WPF\OAuth Example WPF.csproj", "{C498CE3D-9F8B-48DF-BF94-6F7A1AF1771E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth Standalone Form Example", "OAuth Standalone Form Example\OAuth Standalone Form Example.csproj", "{8DA30C63-A859-46AE-92D1-F84CFABB7782}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C498CE3D-9F8B-48DF-BF94-6F7A1AF1771E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C498CE3D-9F8B-48DF-BF94-6F7A1AF1771E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C498CE3D-9F8B-48DF-BF94-6F7A1AF1771E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DA30C63-A859-46AE-92D1-F84CFABB7782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DA30C63-A859-46AE-92D1-F84CFABB7782}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DA30C63-A859-46AE-92D1-F84CFABB7782}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DA30C63-A859-46AE-92D1-F84CFABB7782}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
