@@ -16,7 +16,7 @@ install-package PureCloudOAuthControl
 
 ## Example Applications
 
-This solution contains two examples projects. The _Oauth Example_ project uses the OAuthWebBrowser control in a winforms app. The _OAuth Example WPF_ project uses the OAuthWebBrowser control in a WPF by making use of the [WindowsFormsHost](https://msdn.microsoft.com/en-us/library/system.windows.forms.integration.windowsformshost.aspx) class.
+This solution contains three examples projects. The _Oauth Example_ project uses the OAuthWebBrowser control in a winforms app. The _OAuth Example WPF_ project uses the OAuthWebBrowser control in a WPF by making use of the [WindowsFormsHost](https://msdn.microsoft.com/en-us/library/system.windows.forms.integration.windowsformshost.aspx) class. The _OAuth Standalone Form Example_ project uses the OAuthWebBrowserForm winform in a console application.
 
 ## Using OAuthWebBrowser
 
@@ -26,13 +26,46 @@ If you've used the [Package Manager Console](https://docs.nuget.org/consume/pack
 
 If you're building from source or otherwise not using nuget, reference your version of ININ.PureCloud.OAuthControl.dll in your project and add a reference or install the package for [RestSharp](http://www.nuget.org/packages/RestSharp/).
 
-### Creating an Instance
+### Using the Library
 
-Use UI tools to add the control or create it in code (must create in code for WPF):
+#### Creating an Browser Instance
+
+To create just the web browser control, use UI tools to add the control or create it in code (must create in code for WPF):
 
 ```csharp
 var browser = new OAuthWebBrowser();
 ```
+
+#### Using the Standalone Form
+
+The easiest method of use for this control is to use the OAuthWebBrowserForm form to handle authentication with just a few lines of code. This example will instiantiate and configure the form, initiate the login process, and log the result:
+
+```csharp
+// Create form
+var form = new OAuthWebBrowserForm();
+
+// Set settings
+form.oAuthWebBrowser1.ClientId = "babbc081-0761-4f16-8f56-071aa402ebcb";
+form.oAuthWebBrowser1.RedirectUriIsFake = true;
+form.oAuthWebBrowser1.RedirectUri = "http://localhost:8080";
+
+// Open it
+var result = form.ShowDialog();
+
+Console.WriteLine($"Result: {result}");
+Console.WriteLine($"AccessToken: {form.oAuthWebBrowser1.AccessToken}");
+
+Console.WriteLine("Application complete.");
+Console.WriteLine("Press any key to exit...");
+Console.ReadKey();
+```
+
+*Notes*
+
+* The form has overridden the methods `Show()`, `Show(IWin32Window)`, `ShowDialog()`, and `ShowDialog(IWin32Window)` to validate the configuration (client ID and redirect URI properties must be set), begin the implicit grant flow, and set the dialog result based on if there is an access token (`return string.IsNullOrEmpty(oAuthWebBrowser1.AccessToken) ? DialogResult.Cancel : DialogResult.OK;`).
+* The form does not proxy properties or events from the browser. The browser object can be directly accessed via `OAuthWebBrowserForm.oAuthWebBrowser1`.
+* When using this in a console application, remember that the application must be decorated with [[STAThread]](https://msdn.microsoft.com/en-us/library/system.stathreadattribute(v=vs.110).aspx) to interact with UI components.
+* The Show and ShowDialog methods will log all exceptions to the console and rethrow them. Handle the custom exception type `OAuthSettingsValidationException` to identify validation errors.
 
 ### Setup
 
