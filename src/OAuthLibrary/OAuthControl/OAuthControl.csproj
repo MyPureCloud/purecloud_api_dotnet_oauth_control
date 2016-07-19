@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OAuthSettingsValidationException.cs" />
     <Compile Include="OAuthWebBrowser.cs">
       <SubType>Component</SubType>
     </Compile>
