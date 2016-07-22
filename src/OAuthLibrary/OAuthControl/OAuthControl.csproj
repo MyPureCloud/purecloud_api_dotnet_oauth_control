@@ -58,7 +58,6 @@
       <DependentUpon>OAuthWebBrowserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PureCloudEnvironment.cs" />
     <Compile Include="PureCloudTokenResponse.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -86,7 +86,7 @@ namespace ININ.PureCloud.OAuthControl
         public OAuthWebBrowser()
         {
             RedirectUriIsFake = false;
-            Environment = PureCloudEnvironment.MyPureCloud;
+            Environment = "mypurecloud.com";
             
             this.Navigated += OnNavigated;
         }
@@ -166,7 +166,7 @@ namespace ININ.PureCloud.OAuthControl
             AccessToken = "";
 
             // Navigate to the login URL
-            this.Navigate($"https:\\\\login.{Environment}.com/authorize?client_id={ClientId}&response_type=token&redirect_uri={RedirectUri}");
+            this.Navigate($"https:\\\\login.{Environment}/authorize?client_id={ClientId}&response_type=token&redirect_uri={RedirectUri}");
         }
 
         #endregion

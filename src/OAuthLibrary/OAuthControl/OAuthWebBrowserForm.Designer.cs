@@ -36,7 +36,7 @@
             this.oAuthWebBrowser1.ClientId = null;
             this.oAuthWebBrowser1.ClientSecret = null;
             this.oAuthWebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.oAuthWebBrowser1.Environment = "mypurecloud";
+            this.oAuthWebBrowser1.Environment = "mypurecloud.com";
             this.oAuthWebBrowser1.Location = new System.Drawing.Point(0, 0);
             this.oAuthWebBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.oAuthWebBrowser1.Name = "oAuthWebBrowser1";
