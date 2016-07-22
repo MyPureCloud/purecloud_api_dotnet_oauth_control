@@ -36,6 +36,15 @@ To create just the web browser control, use UI tools to add the control or creat
 var browser = new OAuthWebBrowser();
 ```
 
+#### Setting the Environment
+
+The browser control will use the mypurecloud.com environment by default. If the user should log in to an org in another region, simply specify that region in the browser's `Environment` property prior to initiating the login flow. There is no validation on the values, but should be one of "mypurecloud.com", "mypurecloud.com.au", "mypurecloud.ie", or "mypurecloud.jp" as of the time of this writing. If additional regions are added, simply use the new URL in the same partial format.
+
+```csharp
+var browser = new OAuthWebBrowser();
+browser.Environment = "mypurecloud.ie";
+```
+
 #### Using the Standalone Form
 
 The easiest method of use for this control is to use the OAuthWebBrowserForm form to handle authentication with just a few lines of code. This example will instiantiate and configure the form, initiate the login process, and log the result:
