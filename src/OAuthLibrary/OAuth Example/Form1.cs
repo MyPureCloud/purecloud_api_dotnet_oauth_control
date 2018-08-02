@@ -37,7 +37,6 @@ namespace OAuth_Example
         private void btnImplicitGrant_Click(object sender, EventArgs e)
         {
             oAuthWebBrowser1.ClientId = txtClientId.Text.Trim();
-            oAuthWebBrowser1.ClientSecret = "";
             oAuthWebBrowser1.BeginImplicitGrant();
         }
     }

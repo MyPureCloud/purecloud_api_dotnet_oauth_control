@@ -94,7 +94,6 @@ namespace OAuth_Example
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.oAuthWebBrowser1.ClientId = null;
-            this.oAuthWebBrowser1.ClientSecret = null;
             this.oAuthWebBrowser1.Environment = "mypurecloud.com";
             this.oAuthWebBrowser1.Location = new System.Drawing.Point(0, 0);
             this.oAuthWebBrowser1.MinimumSize = new System.Drawing.Size(20, 20);

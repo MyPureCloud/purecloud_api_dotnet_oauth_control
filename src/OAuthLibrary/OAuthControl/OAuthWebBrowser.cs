@@ -41,11 +41,6 @@ namespace ININ.PureCloud.OAuthControl
         public string ClientId { get; set; }
 
         /// <summary>
-        /// The OAuth Client Secret. Only used with an authorization code grant.
-        /// </summary>
-        public string ClientSecret { get; set; }
-
-        /// <summary>
         /// The Access Token returned after authenticating.
         /// </summary>
         public string AccessToken

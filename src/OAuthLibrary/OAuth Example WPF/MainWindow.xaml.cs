@@ -15,7 +15,6 @@ namespace OAuth_Example_WPF
     {
         private OAuthWebBrowser _browser;
         private string _clientId = "";
-        private string _clientSecret = "";
         private string _authToken = "";
 
 
@@ -26,17 +25,6 @@ namespace OAuth_Example_WPF
             {
                 if (value == _clientId) return;
                 _clientId = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public string ClientSecret
-        {
-            get { return _clientSecret; }
-            set
-            {
-                if (value == _clientSecret) return;
-                _clientSecret = value;
                 OnPropertyChanged();
             }
         }
@@ -61,7 +49,8 @@ namespace OAuth_Example_WPF
             _browser = new OAuthWebBrowser
             {
                 Dock = DockStyle.Fill,
-                RedirectUri = "http://invaliduri/"
+                RedirectUri = "http://invaliduri/",
+                RedirectUriIsFake = true
             };
             _browser.Authenticated += token =>
             {
@@ -92,7 +81,6 @@ namespace OAuth_Example_WPF
         private void StartImplicitGrant_Click(object sender, RoutedEventArgs e)
         {
             _browser.ClientId = ClientId.Trim();
-            _browser.ClientSecret = "";
             _browser.BeginImplicitGrant();
         }
     }
