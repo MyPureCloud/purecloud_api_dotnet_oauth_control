@@ -119,6 +119,17 @@ namespace ININ.PureCloud.OAuthControl
                     }
                 }
 
+                // Scope error
+                if (args.Url.Fragment.StartsWith("#error"))
+                {
+                    // Strip leading part of path and parse
+                    var errorFragment = HttpUtility.ParseQueryString(args.Url.Fragment.Substring(1));
+
+                    RaiseExceptionEncountered("OAuthWebBrowser.Navigated", new Exception($"Error: {errorFragment["error"]}, {errorFragment["error_description"]}"));
+
+                    return;
+                }
+
                 // Process our redirect URL
                 if (args.Url.ToString().ToLowerInvariant().StartsWith(RedirectUri.ToLowerInvariant()))
                 {
