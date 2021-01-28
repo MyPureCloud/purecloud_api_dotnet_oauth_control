@@ -89,7 +89,7 @@ In addition to the properties and events defined above, the properties, events, 
 
 ### Starting the Implicit Grant Flow
 
-To start the implicit grant flow, invoke the ```BeginImplicitGrant()``` method. The ```Authorized``` event will be raised when the flow has completed.
+To start the implicit grant flow, invoke the ```BeginImplicitGrant()``` method. The ```Authenticated``` event will be raised when the flow has completed.
 
 ### Closing the Control
 
