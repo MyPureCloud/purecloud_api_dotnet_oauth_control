@@ -40,8 +40,19 @@ namespace ININ.PureCloud.OAuthControl
         /// </summary>
         public string ClientId { get; set; }
 
+        /// <summary>
+        /// The Org to login to
+        /// </summary>
         public string Org { get; set; }
+
+        /// <summary>
+        /// The Login Provider
+        /// </summary>
         public string Provider { get; set; }
+
+        /// <summary>
+        /// An arbitrary string used to associate a login request with a login response
+        /// </summary>
         public string State { get; set; }
 
         /// <summary>
@@ -174,7 +185,6 @@ namespace ININ.PureCloud.OAuthControl
         {
             // Clear existing token
             AccessToken = "";
-            //Options options = new Options(Org, Provider, State);
 
             // Navigate to the login URL
             this.Navigate($"https:\\\\login.{Environment}/authorize?client_id={ClientId}&response_type=token&redirect_uri={RedirectUri}&org={Org}&provider={Provider}&state={State}");
