@@ -43,6 +43,9 @@
             this.oAuthWebBrowser1.RedirectUriIsFake = false;
             this.oAuthWebBrowser1.Size = new System.Drawing.Size(534, 561);
             this.oAuthWebBrowser1.TabIndex = 0;
+            this.oAuthWebBrowser1.Org = "";
+            this.oAuthWebBrowser1.Provider = "";
+            this.oAuthWebBrowser1.State = "";
             // 
             // OAuthWebBrowserForm
             // 

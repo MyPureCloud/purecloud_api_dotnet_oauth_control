@@ -35,6 +35,10 @@ namespace ININ.PureCloud.OAuthControl
                     throw new OAuthSettingsValidationException("ClientId");
                 if (string.IsNullOrEmpty(oAuthWebBrowser1.RedirectUri))
                     throw new OAuthSettingsValidationException("RedirectUri");
+                if (!string.IsNullOrEmpty(oAuthWebBrowser1.Org) && string.IsNullOrEmpty(oAuthWebBrowser1.Provider))
+                    throw new OAuthSettingsValidationException("Provider must be set if Org is set");
+                if (string.IsNullOrEmpty(oAuthWebBrowser1.Org) && !string.IsNullOrEmpty(oAuthWebBrowser1.Provider))
+                    throw new OAuthSettingsValidationException("Org must be set if Provider is set");
 
                 // Navigate the browser (can't do this after ShowDialog has been called)
                 oAuthWebBrowser1.BeginImplicitGrant();

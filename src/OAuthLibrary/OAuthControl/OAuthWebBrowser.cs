@@ -40,6 +40,10 @@ namespace ININ.PureCloud.OAuthControl
         /// </summary>
         public string ClientId { get; set; }
 
+        public string Org { get; set; }
+        public string Provider { get; set; }
+        public string State { get; set; }
+
         /// <summary>
         /// The Access Token returned after authenticating.
         /// </summary>
@@ -82,7 +86,7 @@ namespace ININ.PureCloud.OAuthControl
         {
             RedirectUriIsFake = false;
             Environment = "mypurecloud.com";
-            
+
             this.Navigated += OnNavigated;
         }
 
@@ -170,9 +174,10 @@ namespace ININ.PureCloud.OAuthControl
         {
             // Clear existing token
             AccessToken = "";
+            //Options options = new Options(Org, Provider, State);
 
             // Navigate to the login URL
-            this.Navigate($"https:\\\\login.{Environment}/authorize?client_id={ClientId}&response_type=token&redirect_uri={RedirectUri}");
+            this.Navigate($"https:\\\\login.{Environment}/authorize?client_id={ClientId}&response_type=token&redirect_uri={RedirectUri}&org={Org}&provider={Provider}&state={State}");
         }
 
         #endregion
