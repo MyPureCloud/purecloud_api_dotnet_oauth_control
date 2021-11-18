@@ -189,15 +189,15 @@ namespace ININ.PureCloud.OAuthControl
 
             StringBuilder sb = new StringBuilder($"https:\\\\login.{Environment}/authorize?client_id={ClientId}&response_type=token&redirect_uri={RedirectUri}");
 
-            if (!string.IsNullOrEmpty(Org) && !string.IsNullOrEmpty(Provider) && !string.IsNullOrEmpty(State))
+            if (!string.IsNullOrEmpty(Org))
             {
-                sb.Append($"&org={Org}&provider={Provider}&state={State}");
+                sb.Append($"&org={Org}");
             }
-            if (!string.IsNullOrEmpty(Org) && !string.IsNullOrEmpty(Provider) && string.IsNullOrEmpty(State))
+            if (!string.IsNullOrEmpty(Provider))
             {
-                sb.Append($"&org={Org}&provider={Provider}");
+                sb.Append($"&provider={Provider}");
             }
-            if (string.IsNullOrEmpty(Org) && string.IsNullOrEmpty(Provider) && !string.IsNullOrEmpty(State))
+            if (!string.IsNullOrEmpty(State))
             {
                 sb.Append($"&state={State}");
             }
