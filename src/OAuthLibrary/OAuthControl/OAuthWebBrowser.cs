@@ -186,8 +186,20 @@ namespace ININ.PureCloud.OAuthControl
             // Clear existing token
             AccessToken = "";
 
+            if (!string.IsNullOrEmpty(Org) && !string.IsNullOrEmpty(Provider) && !string.IsNullOrEmpty(State))
+            {
+                this.Navigate($"https:\\\\login.{Environment}/authorize?client_id={ClientId}&response_type=token&redirect_uri={RedirectUri}&org={Org}&provider={Provider}&state={State}");
+            }
+            if (!string.IsNullOrEmpty(Org) && !string.IsNullOrEmpty(Provider) && string.IsNullOrEmpty(State))
+            {
+                this.Navigate($"https:\\\\login.{Environment}/authorize?client_id={ClientId}&response_type=token&redirect_uri={RedirectUri}&org={Org}&provider={Provider}");
+            }
+            if (string.IsNullOrEmpty(Org) && string.IsNullOrEmpty(Provider) && !string.IsNullOrEmpty(State))
+            {
+                this.Navigate($"https:\\\\login.{Environment}/authorize?client_id={ClientId}&response_type=token&redirect_uri={RedirectUri}&state={State}");
+            }
             // Navigate to the login URL
-            this.Navigate($"https:\\\\login.{Environment}/authorize?client_id={ClientId}&response_type=token&redirect_uri={RedirectUri}&org={Org}&provider={Provider}&state={State}");
+            this.Navigate($"https:\\\\login.{Environment}/authorize?client_id={ClientId}&response_type=token&redirect_uri={RedirectUri}");
         }
 
         #endregion
