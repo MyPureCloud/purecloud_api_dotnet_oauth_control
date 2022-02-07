@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -34,6 +34,11 @@ namespace ININ.PureCloud.OAuthControl
         /// [True] if the redirect URI does not resolve. Setting this to true will hide the control when the redirect URI is encountered.1
         /// </summary>
         public bool RedirectUriIsFake { get; set; }
+
+        /// <summary>
+        /// [True] to always prompt the user for credentials
+        /// </summary>
+        public bool ForceLoginPrompt { get; set; }
 
         /// <summary>
         /// The OAuth Client ID
@@ -172,7 +177,7 @@ namespace ININ.PureCloud.OAuthControl
             AccessToken = "";
 
             // Navigate to the login URL
-            this.Navigate($"https:\\\\login.{Environment}/authorize?client_id={ClientId}&response_type=token&redirect_uri={RedirectUri}");
+            this.Navigate($"https:\\\\login.{Environment}/authorize?client_id={ClientId}&response_type=token&redirect_uri={RedirectUri}{ForceLoginPrompt == true ? "&prompt=login" : ""}");
         }
 
         #endregion
