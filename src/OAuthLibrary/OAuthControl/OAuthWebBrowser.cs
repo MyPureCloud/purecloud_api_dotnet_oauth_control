@@ -57,6 +57,11 @@ namespace ININ.PureCloud.OAuthControl
         public string State { get; set; }
 
         /// <summary>
+        /// [True] to always prompt the user for credentials
+        /// </summary>
+        public bool ForceLoginPrompt { get; set; }
+
+        /// <summary>
         /// The Access Token returned after authenticating.
         /// </summary>
         public string AccessToken
@@ -98,7 +103,10 @@ namespace ININ.PureCloud.OAuthControl
         {
             RedirectUriIsFake = false;
             Environment = "mypurecloud.com";
-
+            Org = "";
+            State = "";
+            Provider = "";
+            ForceLoginPrompt = true;
             this.Navigated += OnNavigated;
         }
 
@@ -200,6 +208,9 @@ namespace ININ.PureCloud.OAuthControl
             if (!string.IsNullOrEmpty(State))
             {
                 sb.Append($"&state={State}");
+            }
+            if (ForceLoginPrompt) {
+                sb.Append($"&prompt=login");
             }
             // Navigate to the login URL
             this.Navigate(sb.ToString());
