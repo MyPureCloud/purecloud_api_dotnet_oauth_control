@@ -79,6 +79,12 @@ The following properties should be configured before invoking an OAuth flow:
 * ```RedirectUri``` - The redirect URI configured for the oauth client
 * ```ClientId``` - The Client ID (aka Application ID) of the OAuth client
 * ```RedirectUriIsFake``` - If set to ```true```, the control will hide itself (visible=false) upon successfully retrieving an auth token.  This exists due to the non-web nature of a .NET app -- there is not necessarially a webpage to redirect to. If a fake URL is used in the configuration (e.g. http://notarealserver/), setting this property to true prevents the user from seeing errors in the browser related to being unable to resolve the address. This setting defaults to ```false```.
+* ```ForceLoginPrompt``` - If set to ```true```, the user will be prompted to enter credentials at the Genesys Cloud login screen and any remembered sessions (auth cookies) will be ignored.
+* ```State``` - An abitrary string used to associate a login request with a login response.
+* ```Org``` - The organization name that would normally be used when logging in.
+* ```Provider``` - The Authentication provider to log in with.
+
+***Note:*** Org must be set if Provider is set and likewise, Provider must be set if Org is set.
 
 The following events may be useful for the consuming application:
 

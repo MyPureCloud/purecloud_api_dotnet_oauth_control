@@ -5,6 +5,7 @@ using System.Web;
 using System.Windows.Forms;
 using RestSharp;
 using RestSharp.Authenticators;
+using System.Text;
 
 namespace ININ.PureCloud.OAuthControl
 {
@@ -39,6 +40,26 @@ namespace ININ.PureCloud.OAuthControl
         /// The OAuth Client ID
         /// </summary>
         public string ClientId { get; set; }
+
+        /// <summary>
+        /// The Org to login to
+        /// </summary>
+        public string Org { get; set; }
+
+        /// <summary>
+        /// The Login Provider
+        /// </summary>
+        public string Provider { get; set; }
+
+        /// <summary>
+        /// An arbitrary string used to associate a login request with a login response
+        /// </summary>
+        public string State { get; set; }
+
+        /// <summary>
+        /// [True] to always prompt the user for credentials
+        /// </summary>
+        public bool ForceLoginPrompt { get; set; }
 
         /// <summary>
         /// The Access Token returned after authenticating.
@@ -82,7 +103,10 @@ namespace ININ.PureCloud.OAuthControl
         {
             RedirectUriIsFake = false;
             Environment = "mypurecloud.com";
-            
+            Org = "";
+            State = "";
+            Provider = "";
+            ForceLoginPrompt = false;
             this.Navigated += OnNavigated;
         }
 
@@ -171,8 +195,25 @@ namespace ININ.PureCloud.OAuthControl
             // Clear existing token
             AccessToken = "";
 
+            StringBuilder sb = new StringBuilder($"https:\\\\login.{Environment}/authorize?client_id={ClientId}&response_type=token&redirect_uri={RedirectUri}");
+
+            if (!string.IsNullOrEmpty(Org))
+            {
+                sb.Append($"&org={Org}");
+            }
+            if (!string.IsNullOrEmpty(Provider))
+            {
+                sb.Append($"&provider={Provider}");
+            }
+            if (!string.IsNullOrEmpty(State))
+            {
+                sb.Append($"&state={State}");
+            }
+            if (ForceLoginPrompt) {
+                sb.Append($"&prompt=login");
+            }
             // Navigate to the login URL
-            this.Navigate($"https:\\\\login.{Environment}/authorize?client_id={ClientId}&response_type=token&redirect_uri={RedirectUri}");
+            this.Navigate(sb.ToString());
         }
 
         #endregion
