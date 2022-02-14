@@ -16,7 +16,7 @@
         <language>en-us</language>
         <tags>genesys purecloud pure cloud public api sdk oauth control</tags>
         <dependencies>
-            <dependency id="RestSharp" version="105.2.3" />
+            <dependency id="RestSharp" version="106.12.0" />
         </dependencies>
     </metadata>
     <files>
