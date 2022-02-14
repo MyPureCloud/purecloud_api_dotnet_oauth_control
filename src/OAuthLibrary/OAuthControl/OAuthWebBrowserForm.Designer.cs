@@ -46,7 +46,7 @@
             this.oAuthWebBrowser1.Org = "";
             this.oAuthWebBrowser1.Provider = "";
             this.oAuthWebBrowser1.State = "";
-            this.oAuthWebBrowser1.ForceLoginPrompt = true;
+            this.oAuthWebBrowser1.ForceLoginPrompt = false;
             // 
             // OAuthWebBrowserForm
             // 

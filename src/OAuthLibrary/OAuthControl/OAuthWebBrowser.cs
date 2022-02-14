@@ -106,7 +106,7 @@ namespace ININ.PureCloud.OAuthControl
             Org = "";
             State = "";
             Provider = "";
-            ForceLoginPrompt = true;
+            ForceLoginPrompt = false;
             this.Navigated += OnNavigated;
         }
 
