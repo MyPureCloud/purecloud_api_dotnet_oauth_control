@@ -2,6 +2,10 @@
 
 [![NuGet Badge](https://buildstats.info/nuget/PureCloudOAuthControl)](https://www.nuget.org/packages/PureCloudOAuthControl/)
 
+**Deprecated**  
+This library launches an Internet Explorer instance, which Microsoft has ended support for. As such, this project is no longer supported by Genesys.
+We have replaced this with the [GenesysCloudOAuthWebView](https://github.com/MyPureCloud/oauth-webview-dotnet) which launches a Microsoft Edge browser instance.
+
 ## Overview
 
 This project produces a .NET library that provides a simple way to execute an OAuth 2 flow in a C# application. This is accomplished by providing the OAuthWebBrowser class, which inherits from the [WebBrowser](https://msdn.microsoft.com/en-us/library/2te2y1x6.aspx) winforms control. When invoked, the control will navigate to the appropriate login URL, allow the user to authenticate securely, and will raise events for authentication and error events.
